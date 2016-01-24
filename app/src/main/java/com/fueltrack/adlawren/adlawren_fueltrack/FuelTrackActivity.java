@@ -1,6 +1,7 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,8 +29,31 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
+
+    private FuelTrackActivity fuelTrackActivity;
+
+    public LogEntryOnItemClickListener(FuelTrackActivity activity) {
+        this.fuelTrackActivity = activity;
+    }
+
+    // TODO: implement
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        // TODO: remove; test
+        // System.out.println("List Item was clicked.");
+
+        // TODO: test
+        Intent intent = new Intent(this.fuelTrackActivity, DisplayLogEntryActivity.class);
+        intent.putExtra(FuelTrackActivity.EXTRA_MESSAGE, "Test Test, Test Test.");
+        fuelTrackActivity.startActivity(intent);
+    }
+}
+
 public class FuelTrackActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "com.fueltrack.adlawren.adlawren_fuel_track";
     private static final String FILENAME = "previous_log_entries.sav";
     private ListView previousLogEntries;
 
@@ -44,12 +68,20 @@ public class FuelTrackActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         previousLogEntries = (ListView) findViewById(R.id.previous_log_entries);
+        /*
         previousLogEntries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // TODO: remove; test
                 System.out.println("List Item was clicked.");
+
+                Intent intent = new Intent(this, DisplayLogEntryActivity.class);
             }
         });
+        */
+
+        previousLogEntries.setOnItemClickListener(new LogEntryOnItemClickListener(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
