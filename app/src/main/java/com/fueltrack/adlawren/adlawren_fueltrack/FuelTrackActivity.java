@@ -8,8 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class FuelTrackActivity extends AppCompatActivity {
+
+    private ListView previousLogEntries;
+
+    private ArrayList<LogEntry> logEntries = new ArrayList<LogEntry>();
+    private ArrayAdapter<LogEntry> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +27,28 @@ public class FuelTrackActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        previousLogEntries = (ListView) findViewById(R.id.previous_log_entries);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                // TODO: remove; test
+                logEntries.add(new LogEntry());
+                adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        adapter = new ArrayAdapter<LogEntry>(this, R.layout.log_entry, logEntries);
+        previousLogEntries.setAdapter(adapter);
     }
 
     @Override
