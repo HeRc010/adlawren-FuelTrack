@@ -1,5 +1,6 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,10 +12,23 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class FuelTrackActivity extends AppCompatActivity {
 
+    private static final String FILENAME = "previous_log_entries.sav";
     private ListView previousLogEntries;
 
     private ArrayList<LogEntry> logEntries = new ArrayList<LogEntry>();
@@ -39,6 +53,8 @@ public class FuelTrackActivity extends AppCompatActivity {
                 // TODO: remove; test
                 logEntries.add(new LogEntry());
                 adapter.notifyDataSetChanged();
+
+                saveToFile();
             }
         });
     }
@@ -46,6 +62,8 @@ public class FuelTrackActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        loadFromFile();
 
         adapter = new ArrayAdapter<LogEntry>(this, R.layout.log_entry, logEntries);
         previousLogEntries.setAdapter(adapter);
@@ -71,5 +89,40 @@ public class FuelTrackActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadFromFile() {
+        logEntries = new ArrayList<LogEntry>();
+        try {
+            FileInputStream stream = openFileInput(FILENAME);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+
+            Gson gson = new Gson();
+
+            // Taken from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
+            Type listType = new TypeToken<ArrayList<LogEntry>>() {}.getType();
+            logEntries = gson.fromJson(reader, listType);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveToFile() {
+        try {
+            FileOutputStream stream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream));
+            Gson gson = new Gson();
+            gson.toJson(logEntries, writer);
+            writer.flush();
+
+            stream.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
     }
 }
