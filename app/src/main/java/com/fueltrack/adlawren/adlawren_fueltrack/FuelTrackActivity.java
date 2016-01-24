@@ -2,6 +2,9 @@ package com.fueltrack.adlawren.adlawren_fueltrack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,9 +44,6 @@ class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        // TODO: remove; test
-        // System.out.println("List Item was clicked.");
-
         // TODO: test
         Intent intent = new Intent(this.fuelTrackActivity, DisplayLogEntryActivity.class);
         intent.putExtra(FuelTrackActivity.EXTRA_MESSAGE, "Test Test, Test Test.");
@@ -68,19 +68,6 @@ public class FuelTrackActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         previousLogEntries = (ListView) findViewById(R.id.previous_log_entries);
-        /*
-        previousLogEntries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // TODO: remove; test
-                System.out.println("List Item was clicked.");
-
-                Intent intent = new Intent(this, DisplayLogEntryActivity.class);
-            }
-        });
-        */
-
         previousLogEntries.setOnItemClickListener(new LogEntryOnItemClickListener(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

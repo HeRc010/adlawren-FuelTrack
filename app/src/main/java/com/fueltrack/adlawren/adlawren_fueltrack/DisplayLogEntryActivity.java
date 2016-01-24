@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 public class DisplayLogEntryActivity extends AppCompatActivity {
 
@@ -15,6 +16,9 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_log_entry);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TextView textView = (TextView) findViewById(R.id.text_test);
+        textView.setText(getIntent().getStringExtra(FuelTrackActivity.EXTRA_MESSAGE));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
