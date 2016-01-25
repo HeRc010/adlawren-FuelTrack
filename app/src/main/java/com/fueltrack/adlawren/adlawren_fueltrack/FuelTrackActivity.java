@@ -43,8 +43,6 @@ class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
     // TODO: implement
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        // TODO: test
         Intent intent = new Intent(this.fuelTrackActivity, DisplayLogEntryActivity.class);
         intent.putExtra(FuelTrackActivity.EXTRA_MESSAGE, "Test Test, Test Test.");
         fuelTrackActivity.startActivity(intent);
@@ -74,8 +72,6 @@ public class FuelTrackActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
 
                 // TODO: remove; test
                 logEntries.add(new LogEntry());

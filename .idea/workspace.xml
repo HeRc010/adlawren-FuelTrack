@@ -33,11 +33,11 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="134" column="32" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
+              <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
               <folding>
-                <element signature="e#2011#2021#0" expanded="true" />
-                <element signature="e#2627#3065#0" expanded="true" />
-                <element signature="e#3064#3065#0" expanded="true" />
+                <element signature="e#1988#1998#0" expanded="true" />
+                <element signature="e#2604#2889#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,33 +47,36 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
-              <folding>
-                <element signature="e#949#1217#0" expanded="true" />
-                <element signature="e#1216#1217#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log_entry.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/log_entry.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.419355">
-              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogEntry.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="content_display_log_entry.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6741573">
+              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+              <folding>
+                <element signature="e#361#394#0" expanded="true" />
+                <element signature="e#419#454#0" expanded="true" />
+                <element signature="e#480#515#0" expanded="true" />
+                <element signature="e#539#572#0" expanded="true" />
+                <element signature="e#597#637#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogEntry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68992245">
-              <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1648,13 +1651,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/log_entry.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_fuel_track.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_display_log_entry.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_fuel_track.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml" />
       </list>
     </option>
   </component>
@@ -2025,14 +2028,14 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49721116" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5091633" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5123506" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.49083665" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.4876494" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49402392" order="2" side_tool="false" content_ui="tabs" />
@@ -2077,9 +2080,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
           <folding>
-            <element signature="e#2011#2021#0" expanded="true" />
-            <element signature="e#2627#3065#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
+            <element signature="e#1988#1998#0" expanded="true" />
+            <element signature="e#2604#2889#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2099,9 +2102,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
-            <element signature="e#2011#2021#0" expanded="true" />
-            <element signature="e#2627#3065#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
+            <element signature="e#1988#1998#0" expanded="true" />
+            <element signature="e#2604#2889#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2126,23 +2129,6 @@
           <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
           <folding>
             <element signature="e#597#637#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.225806">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="e#328#361#0" expanded="true" />
-            <element signature="e#386#421#0" expanded="true" />
-            <element signature="e#447#482#0" expanded="true" />
-            <element signature="e#506#539#0" expanded="true" />
-            <element signature="e#564#604#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2174,7 +2160,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.419355">
+        <state vertical-scroll-proportion="0.21067415">
           <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding />
         </state>
@@ -2183,11 +2169,11 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="134" column="32" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
+          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
           <folding>
-            <element signature="e#2011#2021#0" expanded="true" />
-            <element signature="e#2627#3065#0" expanded="true" />
-            <element signature="e#3064#3065#0" expanded="true" />
+            <element signature="e#1988#1998#0" expanded="true" />
+            <element signature="e#2604#2889#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2195,20 +2181,34 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="86" selection-start-line="20" selection-start-column="86" selection-end-line="20" selection-end-column="86" />
-          <folding>
-            <element signature="e#949#1217#0" expanded="true" />
-            <element signature="e#1216#1217#0" expanded="true" />
-          </folding>
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68992245">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6741573">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding>
+            <element signature="e#361#394#0" expanded="true" />
+            <element signature="e#419#454#0" expanded="true" />
+            <element signature="e#480#515#0" expanded="true" />
+            <element signature="e#539#572#0" expanded="true" />
+            <element signature="e#597#637#0" expanded="true" />
           </folding>
         </state>
       </provider>
