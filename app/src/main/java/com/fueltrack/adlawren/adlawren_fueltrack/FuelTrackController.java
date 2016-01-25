@@ -21,7 +21,8 @@ public class FuelTrackController {
 
     }
 
-    public static final String EXTRA_MESSAGE = "com.fueltrack.adlawren.adlawren_fuel_track";
+    public static final String LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.log.entry";
+    public static final String NEW_LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.new.log.entry";
 
     class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
         private Context context;
@@ -33,13 +34,14 @@ public class FuelTrackController {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(context, DisplayLogEntryActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, (Serializable) parent.getItemAtPosition(position));
+            intent.putExtra(LOG_ENTRY_EXTRA, (Serializable) parent.getItemAtPosition(position));
+            intent.putExtra(NEW_LOG_ENTRY_EXTRA, false);
             context.startActivity(intent);
         }
     }
 
-    public LogEntryOnItemClickListener getLogEntryOnClickListener(FuelTrackActivity activity) {
-        return new LogEntryOnItemClickListener(activity);
+    public LogEntryOnItemClickListener getLogEntryOnClickListener(Context context) {
+        return new LogEntryOnItemClickListener(context);
     }
 
     class AddNewEntryOnClickListener implements View.OnClickListener {
@@ -49,16 +51,34 @@ public class FuelTrackController {
             context = initialContext;
         }
 
-        // TODO: implement
         @Override
         public void onClick(View view) {
-
-            // TODO: remove; test
-            System.out.println("Test: From new Listener");
+            Intent intent = new Intent(context, DisplayLogEntryActivity.class);
+            intent.putExtra(NEW_LOG_ENTRY_EXTRA, true);
+            context.startActivity(intent);
         }
     }
 
-    public AddNewEntryOnClickListener getNewEntryOnClickListener(FuelTrackActivity activity) {
-        return new AddNewEntryOnClickListener(activity);
+    public AddNewEntryOnClickListener getNewEntryOnClickListener(Context context) {
+        return new AddNewEntryOnClickListener(context);
+    }
+
+    class SaveEntryOnClickListener implements View.OnClickListener {
+        private Context context;
+
+        public SaveEntryOnClickListener(Context initialContext) {
+            context = initialContext;
+        }
+
+        // TODO: implement
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(context, FuelTrackActivity.class);
+            context.startActivity(intent);
+        }
+    }
+
+    public SaveEntryOnClickListener getSaveEntryOnClickListener(Context context) {
+        return new SaveEntryOnClickListener(context);
     }
 }

@@ -1,9 +1,7 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
-import android.app.Activity;
 import android.content.Context;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -41,7 +39,6 @@ public class FuelTrackDataStore {
     private void initializeArrayAdapter(Context context) {
         loadLogEntriesFromFile(context);
         adapter = new ArrayAdapter<LogEntry>(context, R.layout.log_entry, logEntries);
-        updateTotalCost(context);
     }
 
     private void loadLogEntriesFromFile(Context context) {
@@ -96,21 +93,14 @@ public class FuelTrackDataStore {
 
         logEntries.add(newEntry);
         adapter.notifyDataSetChanged();
-        updateTotalCost(context);
     }
 
-    private void updateTotalCost(Context context) {
-
-        // Recompute total cost
+    public Double getTotalFuelCost() {
         Double totalCost = 0.0;
         for (LogEntry entry : logEntries) {
             totalCost += entry.getFuelCost();
         }
 
-        // TODO: find an alternate method, this is hacky
-        Activity activity = (Activity) context;
-
-        TextView totalCostView = (TextView) activity.getWindow().getDecorView().findViewById(R.id.total_cost);
-        totalCostView.setText("Total Cost: $" + totalCost.toString());
+        return totalCost;
     }
 }

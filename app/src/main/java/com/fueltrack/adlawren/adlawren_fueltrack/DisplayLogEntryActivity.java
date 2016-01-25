@@ -3,6 +3,7 @@ package com.fueltrack.adlawren.adlawren_fueltrack;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,23 +16,37 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackController.EXTRA_MESSAGE);
+        boolean newEntry = getIntent().getBooleanExtra(FuelTrackController.NEW_LOG_ENTRY_EXTRA, false);
 
-        EditText stationInput = (EditText) findViewById(R.id.station_input),
-                 gradeInput = (EditText) findViewById(R.id.grade_input),
-                 odometerInput = (EditText) findViewById(R.id.odometer_input),
-                 fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
-                 fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
+        // TODO: implement
+        if (newEntry) {
 
-        TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
+            // TODO: remove, test
+            System.out.println("New LogEntry processed in DisplayLogEntryActivity");
 
-        stationInput.setText(logEntry.getStation());
-        gradeInput.setText(logEntry.getFuelGrade());
-        odometerInput.setText(logEntry.getOdometerReading().toString());
-        fuelAmountInput.setText(logEntry.getFuelAmount().toString());
-        fuelUnitCostInput.setText(logEntry.getFuelUnitCost().toString());
+            // ...
+        } else {
+            LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackController.LOG_ENTRY_EXTRA);
 
-        totalCostView.setText("Total Cost: $" + logEntry.getFuelCost().toString());
+            EditText stationInput = (EditText) findViewById(R.id.station_input),
+                    gradeInput = (EditText) findViewById(R.id.grade_input),
+                    odometerInput = (EditText) findViewById(R.id.odometer_input),
+                    fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
+                    fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
+
+            TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
+
+            stationInput.setText(logEntry.getStation());
+            gradeInput.setText(logEntry.getFuelGrade());
+            odometerInput.setText(logEntry.getOdometerReading().toString());
+            fuelAmountInput.setText(logEntry.getFuelAmount().toString());
+            fuelUnitCostInput.setText(logEntry.getFuelUnitCost().toString());
+
+            totalCostView.setText("Total Cost: $" + logEntry.getFuelCost().toString());
+        }
+
+        Button saveButton = (Button) findViewById(R.id.save_entry);
+        saveButton.setOnClickListener(FuelTrackController.getInstance().getSaveEntryOnClickListener(this));
     }
 
 }

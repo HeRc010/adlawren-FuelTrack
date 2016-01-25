@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class FuelTrackActivity extends AppCompatActivity {
     private ListView previousLogEntriesView;
@@ -30,6 +31,9 @@ public class FuelTrackActivity extends AppCompatActivity {
         super.onStart();
 
         previousLogEntriesView.setAdapter(FuelTrackDataStore.getInstance().getLogEntryArrayAdapter(this));
+
+        TextView totalCostView = (TextView) findViewById(R.id.total_cost);
+        totalCostView.setText("Total Cost: $" + FuelTrackDataStore.getInstance().getTotalFuelCost().toString());
     }
 
     @Override
