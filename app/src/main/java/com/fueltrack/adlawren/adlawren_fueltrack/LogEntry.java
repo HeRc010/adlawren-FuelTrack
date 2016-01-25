@@ -23,14 +23,14 @@ public class LogEntry implements Serializable {
 
     // TODO: remove; used for testing
     public LogEntry() {
-        this.date = new Date(System.currentTimeMillis());
+        date = new Date(System.currentTimeMillis());
 
-        this.station = "Test Station";
-        this.fuelGrade = "Test Fuel Grade";
+        station = "Test Station";
+        fuelGrade = "Test Fuel Grade";
 
-        this.odometerReading = 50.0;
-        this.fuelAmount = 100.0;
-        this.fuelUnitCost = 150.0;
+        odometerReading = 50.0;
+        fuelAmount = 100.0;
+        fuelUnitCost = 150.0;
     }
 
     // TODO: add error checking
@@ -40,36 +40,64 @@ public class LogEntry implements Serializable {
                     Double initialOdometerReading,
                     Double initialFuelAmount,
                     Double initialFuelUnitCost) {
-        this.date = initialDate; // Ensure the date is not in the future
-        this.station = initialStation; // Ensure maximum length?
-        this.fuelGrade = initialFuelGrade; // Ensure maximum length?
-        this.odometerReading = initialOdometerReading; // Ensure value is greater than zero, maximum value?
-        this.fuelAmount = initialFuelAmount; // Ensure value is greater than zero, maximum value?
-        this.fuelUnitCost = initialFuelUnitCost; // Ensure value is greater than zero, maximum value?
+        date = initialDate; // Ensure the date is not in the future
+        station = initialStation; // Ensure maximum length?
+        fuelGrade = initialFuelGrade; // Ensure maximum length?
+        odometerReading = initialOdometerReading; // Ensure value is greater than zero, maximum value?
+        fuelAmount = initialFuelAmount; // Ensure value is greater than zero, maximum value?
+        fuelUnitCost = initialFuelUnitCost; // Ensure value is greater than zero, maximum value?
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date newDate) {
+        date = newDate;
     }
 
     public String getStation() {
-        return this.station;
+        return station;
+    }
+
+    public void setStation(String newStation) {
+        station = newStation;
     }
 
     public String getFuelGrade() {
-        return this.fuelGrade;
+        return fuelGrade;
+    }
+
+    public void setFuelGrade(String newFuelGrade) {
+        fuelGrade = newFuelGrade;
     }
 
     public Double getOdometerReading() {
-        return this.odometerReading;
+        return odometerReading;
+    }
+
+    public void setOdometerReading(Double newOdometerReading) {
+        odometerReading = newOdometerReading;
     }
 
     public Double getFuelAmount() {
-        return this.fuelAmount;
+        return fuelAmount;
+    }
+
+    public void setFuelAmount(Double newFuelAmount) {
+        fuelAmount = newFuelAmount;
     }
 
     public Double getFuelUnitCost() {
-        return this.fuelUnitCost;
+        return fuelUnitCost;
+    }
+
+    public void setFuelUnitCost(Double newFuelUnitCost) {
+        fuelUnitCost = newFuelUnitCost;
     }
 
     public Double getFuelCost() {
-        return this.fuelAmount * this.fuelUnitCost;
+        return fuelAmount * fuelUnitCost;
     }
 
     @Override
@@ -78,34 +106,49 @@ public class LogEntry implements Serializable {
 
         // Add date
         builder.append("Date: ");
-        builder.append(new SimpleDateFormat("yyyy-MM-dd").format(this.date) + "\n");
+        builder.append(new SimpleDateFormat("yyyy-MM-dd").format(date) + "\n");
 
         // Add Station
-        builder.append("Station: " + this.station + "\n");
+        builder.append("Station: " + station + "\n");
 
         // Add Fuel Grade
-        builder.append("Grade: " + this.fuelGrade + "\n");
+        builder.append("Grade: " + fuelGrade + "\n");
 
         // Add Odometer Reading
         builder.append("Odometer Reading: ");
-        builder.append(this.odometerReading);
+        builder.append(odometerReading);
         builder.append("\n");
 
         // Add Fuel Amount
         builder.append("Amount: ");
-        builder.append(this.fuelAmount);
+        builder.append(fuelAmount);
         builder.append("\n");
 
         // Add Fuel Unit Cost
         builder.append("Unit Cost: ");
-        builder.append(this.fuelUnitCost);
+        builder.append(fuelUnitCost);
         builder.append("\n");
 
         // Add Fuel Cost
         builder.append("Cost: ");
-        builder.append(this.fuelAmount * this.fuelUnitCost);
+        builder.append(getFuelCost());
         builder.append("\n");
 
         return builder.toString();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        LogEntry otherEntry = (LogEntry) object;
+
+        if (!otherEntry.getDate().equals(date)) { return false; }
+        if (!otherEntry.getStation().equals(station)) { return false; }
+        if (!otherEntry.getFuelGrade().equals(fuelGrade)) { return false; }
+        if (!otherEntry.getOdometerReading().equals(odometerReading)) { return false; }
+        if (!otherEntry.getFuelAmount().equals(fuelAmount)) { return false; }
+        if (!otherEntry.getFuelUnitCost().equals(fuelUnitCost)) { return false; }
+        if (!otherEntry.getFuelCost().equals(getFuelCost())) { return false; }
+
+        return true;
     }
 }

@@ -16,25 +16,19 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // TODO: add functionality to edit date
+
+        EditText stationInput = (EditText) findViewById(R.id.station_input),
+                gradeInput = (EditText) findViewById(R.id.grade_input),
+                odometerInput = (EditText) findViewById(R.id.odometer_input),
+                fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
+                fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
+
+        TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
+
         boolean newEntry = getIntent().getBooleanExtra(FuelTrackController.NEW_LOG_ENTRY_EXTRA, false);
-
-        // TODO: implement
-        if (newEntry) {
-
-            // TODO: remove, test
-            System.out.println("New LogEntry processed in DisplayLogEntryActivity");
-
-            // ...
-        } else {
+        if (!newEntry) {
             LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackController.LOG_ENTRY_EXTRA);
-
-            EditText stationInput = (EditText) findViewById(R.id.station_input),
-                    gradeInput = (EditText) findViewById(R.id.grade_input),
-                    odometerInput = (EditText) findViewById(R.id.odometer_input),
-                    fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
-                    fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
-
-            TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
 
             stationInput.setText(logEntry.getStation());
             gradeInput.setText(logEntry.getFuelGrade());
@@ -46,7 +40,22 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         }
 
         Button saveButton = (Button) findViewById(R.id.save_entry);
-        saveButton.setOnClickListener(FuelTrackController.getInstance().getSaveEntryOnClickListener(this));
+        saveButton.setOnClickListener(FuelTrackController.getInstance().getSaveEntryOnClickListener(this,
+                                                                                                    getIntent(),
+                                                                                                    stationInput,
+                                                                                                    gradeInput,
+                                                                                                    odometerInput,
+                                                                                                    fuelAmountInput,
+                                                                                                    fuelUnitCostInput));
+    }
+
+    // TODO: implement?
+    public static LogEntry getDisplayedLogEntry() {
+        LogEntry displayedEntry = new LogEntry();
+
+        // ...
+
+        return displayedEntry;
     }
 
 }

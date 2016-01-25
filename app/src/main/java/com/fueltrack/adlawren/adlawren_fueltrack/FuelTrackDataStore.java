@@ -93,6 +93,46 @@ public class FuelTrackDataStore {
 
         logEntries.add(newEntry);
         adapter.notifyDataSetChanged();
+
+        saveLogEntriesToFile(context);
+    }
+
+    public void updateLogEntry(Context context, LogEntry oldEntry, LogEntry newEntry) {
+
+        if (adapter == null) {
+            initializeArrayAdapter(context);
+        }
+
+        int oldIndex = logEntries.indexOf(oldEntry);
+        if (oldIndex == -1) {
+
+            // TODO: remove; test
+            System.out.println("Failed to update entry");
+
+            return;
+        }
+
+        logEntries.set(oldIndex, newEntry);
+        adapter.notifyDataSetChanged();
+        saveLogEntriesToFile(context);
+
+        // TODO: remove; test
+        System.out.println("Updated entry");
+
+        // TODO: remove; old method
+//        for (LogEntry entry : logEntries) {
+//            if (entry.equals(oldEntry)) {
+//                entry = newEntry;
+//                adapter.notifyDataSetChanged();
+//
+//                saveLogEntriesToFile(context);
+//
+//                // TODO: remove; test
+//                System.out.println("Updated entry");
+//
+//                return;
+//            }
+//        }
     }
 
     public Double getTotalFuelCost() {
