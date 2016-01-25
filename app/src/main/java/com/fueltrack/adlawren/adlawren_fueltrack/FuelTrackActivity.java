@@ -17,6 +17,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -40,11 +42,10 @@ class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
         this.fuelTrackActivity = activity;
     }
 
-    // TODO: implement
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this.fuelTrackActivity, DisplayLogEntryActivity.class);
-        intent.putExtra(FuelTrackActivity.EXTRA_MESSAGE, "Test Test, Test Test.");
+        intent.putExtra(FuelTrackActivity.EXTRA_MESSAGE, (Serializable) parent.getItemAtPosition(position));
         fuelTrackActivity.startActivity(intent);
     }
 }
@@ -53,7 +54,7 @@ public class FuelTrackActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.fueltrack.adlawren.adlawren_fuel_track";
     private static final String FILENAME = "previous_log_entries.sav";
-    private ListView previousLogEntries;
+    private ListView previousLogEntriesView;
 
     private ArrayList<LogEntry> logEntries = new ArrayList<LogEntry>();
     private ArrayAdapter<LogEntry> adapter;
@@ -65,8 +66,8 @@ public class FuelTrackActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        previousLogEntries = (ListView) findViewById(R.id.previous_log_entries);
-        previousLogEntries.setOnItemClickListener(new LogEntryOnItemClickListener(this));
+        previousLogEntriesView = (ListView) findViewById(R.id.previous_log_entries);
+        previousLogEntriesView.setOnItemClickListener(new LogEntryOnItemClickListener(this));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +77,8 @@ public class FuelTrackActivity extends AppCompatActivity {
                 // TODO: remove; test
                 logEntries.add(new LogEntry());
                 adapter.notifyDataSetChanged();
+
+                updateTotalCost();
 
                 saveToFile();
             }
@@ -89,7 +92,9 @@ public class FuelTrackActivity extends AppCompatActivity {
         loadFromFile();
 
         adapter = new ArrayAdapter<LogEntry>(this, R.layout.log_entry, logEntries);
-        previousLogEntries.setAdapter(adapter);
+        previousLogEntriesView.setAdapter(adapter);
+
+        updateTotalCost();
     }
 
     @Override
@@ -112,6 +117,18 @@ public class FuelTrackActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updateTotalCost() {
+
+        // Recompute total cost
+        Double totalCost = 0.0;
+        for (LogEntry entry : logEntries) {
+            totalCost += entry.getFuelCost();
+        }
+
+        TextView totalCostView = (TextView) findViewById(R.id.total_cost);
+        totalCostView.setText("Total Cost: $" + totalCost.toString());
     }
 
     private void loadFromFile() {

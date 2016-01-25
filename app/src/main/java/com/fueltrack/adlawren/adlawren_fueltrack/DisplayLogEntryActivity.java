@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class DisplayLogEntryActivity extends AppCompatActivity {
@@ -17,19 +18,24 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // TODO: remove; test
-//        TextView textView = (TextView) findViewById(R.id.text_test);
-//        textView.setText(getIntent().getStringExtra(FuelTrackActivity.EXTRA_MESSAGE));
+        LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackActivity.EXTRA_MESSAGE);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        EditText stationInput = (EditText) findViewById(R.id.station_input),
+                 gradeInput = (EditText) findViewById(R.id.grade_input),
+                 odometerInput = (EditText) findViewById(R.id.odometer_input),
+                 fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
+                 fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
 
+        TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
+
+        stationInput.setText(logEntry.getStation());
+        gradeInput.setText(logEntry.getFuelGrade());
+        odometerInput.setText(logEntry.getOdometerReading().toString());
+        fuelAmountInput.setText(logEntry.getFuelAmount().toString());
+        fuelUnitCostInput.setText(logEntry.getFuelUnitCost().toString());
+
+        Double totalCost = logEntry.getFuelAmount() * logEntry.getFuelUnitCost();
+        totalCostView.setText("Total Cost: " + totalCost.toString());
     }
 
 }

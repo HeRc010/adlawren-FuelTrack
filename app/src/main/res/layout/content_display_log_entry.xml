@@ -22,55 +22,60 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <TextView
-            android:id="@+id/station_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Station:" />
 
         <EditText
+            android:id="@+id/station_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/grade_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fuel Grade:" />
 
         <EditText
+            android:id="@+id/grade_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/odometer_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Odometer Reading (in km):" />
 
         <EditText
+            android:id="@+id/odometer_input"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/fuel_amount_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fuel Amount (in L):" />
 
         <EditText
+            android:id="@+id/fuel_amount_input"
             android:inputType="numberDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/fuel_unit_cost_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fuel Unit Cost (in cents/L):" />
 
         <EditText
+            android:id="@+id/fuel_unit_cost_input"
             android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/entry_total_cost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -81,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save Log Entry"
+        android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
         android:background="#4e7dff" />
 

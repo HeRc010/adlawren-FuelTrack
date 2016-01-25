@@ -1,12 +1,13 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by adlawren on 23/01/16.
  */
-public class LogEntry {
+public class LogEntry implements Serializable {
 
     // TODO: see how difficult this is to implement;
     // instead of having the user enter an arbitrarily specific value,
@@ -45,6 +46,30 @@ public class LogEntry {
         this.odometerReading = initialOdometerReading; // Ensure value is greater than zero, maximum value?
         this.fuelAmount = initialFuelAmount; // Ensure value is greater than zero, maximum value?
         this.fuelUnitCost = initialFuelUnitCost; // Ensure value is greater than zero, maximum value?
+    }
+
+    public String getStation() {
+        return this.station;
+    }
+
+    public String getFuelGrade() {
+        return this.fuelGrade;
+    }
+
+    public Double getOdometerReading() {
+        return this.odometerReading;
+    }
+
+    public Double getFuelAmount() {
+        return this.fuelAmount;
+    }
+
+    public Double getFuelUnitCost() {
+        return this.fuelUnitCost;
+    }
+
+    public Double getFuelCost() {
+        return this.fuelAmount * this.fuelUnitCost;
     }
 
     @Override
