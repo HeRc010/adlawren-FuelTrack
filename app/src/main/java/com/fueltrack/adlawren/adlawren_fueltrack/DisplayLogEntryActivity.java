@@ -1,11 +1,8 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,7 +15,7 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackActivity.EXTRA_MESSAGE);
+        LogEntry logEntry = (LogEntry) getIntent().getSerializableExtra(FuelTrackController.EXTRA_MESSAGE);
 
         EditText stationInput = (EditText) findViewById(R.id.station_input),
                  gradeInput = (EditText) findViewById(R.id.grade_input),
@@ -34,8 +31,7 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         fuelAmountInput.setText(logEntry.getFuelAmount().toString());
         fuelUnitCostInput.setText(logEntry.getFuelUnitCost().toString());
 
-        Double totalCost = logEntry.getFuelAmount() * logEntry.getFuelUnitCost();
-        totalCostView.setText("Total Cost: " + totalCost.toString());
+        totalCostView.setText("Total Cost: $" + logEntry.getFuelCost().toString());
     }
 
 }
