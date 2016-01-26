@@ -1,16 +1,23 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class FuelTrackActivity extends AppCompatActivity {
     private ListView previousLogEntriesView;
+
+    // TODO: implement functionality surrounding this
+    private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

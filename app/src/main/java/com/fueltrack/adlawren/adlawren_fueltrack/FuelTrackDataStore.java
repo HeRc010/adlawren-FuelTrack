@@ -37,6 +37,8 @@ public class FuelTrackDataStore {
     private static ArrayAdapter<LogEntry> adapter = null;
 
     private void initializeArrayAdapter(Context context) {
+
+        // Load the LogEntries from the given file and construct the ArrayAdapter
         loadLogEntriesFromFile(context);
         adapter = new ArrayAdapter<LogEntry>(context, R.layout.log_entry, logEntries);
     }
@@ -44,14 +46,19 @@ public class FuelTrackDataStore {
     private void loadLogEntriesFromFile(Context context) {
         logEntries = new ArrayList<LogEntry>();
         try {
+
+            // Initialize BufferedReader using stream from the given file
             FileInputStream stream = context.openFileInput(FILENAME);
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
             Gson gson = new Gson();
 
             // Taken from https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
+            // Parse the Json stored in the file
             Type listType = new TypeToken<ArrayList<LogEntry>>() {}.getType();
             logEntries = gson.fromJson(reader, listType);
+
+            stream.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -61,9 +68,12 @@ public class FuelTrackDataStore {
 
     private void saveLogEntriesToFile(Context context) {
         try {
-            FileOutputStream stream = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
 
+            // Initialize BufferedWriter using stream from the given file
+            FileOutputStream stream = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream));
+
+            // Write the Json to the given file
             Gson gson = new Gson();
             gson.toJson(logEntries, writer);
             writer.flush();
@@ -78,6 +88,7 @@ public class FuelTrackDataStore {
 
     public ArrayAdapter<LogEntry> getLogEntryArrayAdapter(Context context) {
 
+        // Ensure the ArrayAdapter has been initialized
         if (adapter == null) {
             initializeArrayAdapter(context);
         }
@@ -87,54 +98,43 @@ public class FuelTrackDataStore {
 
     public void addLogEntry(Context context, LogEntry newEntry) {
 
+        // Ensure the ArrayAdapter has been initialized
         if (adapter == null) {
             initializeArrayAdapter(context);
         }
 
+        // Add the newEntry to the ArrayList
         logEntries.add(newEntry);
-        adapter.notifyDataSetChanged();
 
+        // Update the ArrayAdapter and file system
+        adapter.notifyDataSetChanged();
         saveLogEntriesToFile(context);
     }
 
     public void updateLogEntry(Context context, LogEntry oldEntry, LogEntry newEntry) {
 
+        // Ensure the ArrayAdapter has been initialized
         if (adapter == null) {
             initializeArrayAdapter(context);
         }
 
+        // Attempt to find the index of the oldEntry in the ArrayList
         int oldIndex = logEntries.indexOf(oldEntry);
         if (oldIndex == -1) {
 
-            // TODO: remove; test
-            System.out.println("Failed to update entry");
-
+            // No LogEntry found which resembles the oldEntry
             return;
         }
 
+        // Replace the oldEntry with the newEntry
         logEntries.set(oldIndex, newEntry);
+
+        // Update the ArrayAdapter and file system
         adapter.notifyDataSetChanged();
         saveLogEntriesToFile(context);
-
-        // TODO: remove; test
-        System.out.println("Updated entry");
-
-        // TODO: remove; old method
-//        for (LogEntry entry : logEntries) {
-//            if (entry.equals(oldEntry)) {
-//                entry = newEntry;
-//                adapter.notifyDataSetChanged();
-//
-//                saveLogEntriesToFile(context);
-//
-//                // TODO: remove; test
-//                System.out.println("Updated entry");
-//
-//                return;
-//            }
-//        }
     }
 
+    // Compute the total cost from the list of LogEntries
     public Double getTotalFuelCost() {
         Double totalCost = 0.0;
         for (LogEntry entry : logEntries) {
