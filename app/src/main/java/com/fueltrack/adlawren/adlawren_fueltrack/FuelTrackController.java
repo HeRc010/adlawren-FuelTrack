@@ -26,7 +26,7 @@ public class FuelTrackController {
     public static final String LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.log.entry";
     public static final String NEW_LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.new.log.entry";
 
-    class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
+    private class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
         private Context context;
 
         public LogEntryOnItemClickListener(Context initialContext) {
@@ -35,8 +35,16 @@ public class FuelTrackController {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            // Get the selected LogEntry
+            LogEntry selectedLogEntry = (LogEntry) parent.getItemAtPosition(position);
+
+            // Initialize the contents of the DisplayLogEntryDataStore
+            DisplayLogEntryDataStore.getInstance().updateLogEntry(selectedLogEntry);
+
+            // Start the DisplayLogEntryActivity
             Intent intent = new Intent(context, DisplayLogEntryActivity.class);
-            intent.putExtra(LOG_ENTRY_EXTRA, (Serializable) parent.getItemAtPosition(position));
+            intent.putExtra(LOG_ENTRY_EXTRA, selectedLogEntry);
             intent.putExtra(NEW_LOG_ENTRY_EXTRA, false);
             context.startActivity(intent);
         }
@@ -46,7 +54,7 @@ public class FuelTrackController {
         return new LogEntryOnItemClickListener(context);
     }
 
-    class AddNewEntryOnClickListener implements View.OnClickListener {
+    private class AddNewEntryOnClickListener implements View.OnClickListener {
         private Context context;
 
         public AddNewEntryOnClickListener(Context initialContext) {
