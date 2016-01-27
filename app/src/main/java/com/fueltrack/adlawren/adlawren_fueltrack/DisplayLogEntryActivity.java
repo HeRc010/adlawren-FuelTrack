@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,7 +22,7 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // TODO: add functionality to edit date
+        // Acquire View handles
         TextView dateView = (TextView) findViewById(R.id.entry_date);
 
         EditText stationInput = (EditText) findViewById(R.id.station_input),
@@ -32,33 +31,38 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
                 fuelAmountInput = (EditText) findViewById(R.id.fuel_amount_input),
                 fuelUnitCostInput = (EditText) findViewById(R.id.fuel_unit_cost_input);
 
+        TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
+
+        Button saveButton = (Button) findViewById(R.id.save_entry);
+
+        // Assign Listeners from the DisplayLogEntryController
+        Calendar calendar = Calendar.getInstance();
+        datePickerDialog = new DatePickerDialog(this,
+                                                DisplayLogEntryController.getInstance().getEntryDateOnDateSetListener(this),
+                                                calendar.get(Calendar.YEAR),
+                                                calendar.get(Calendar.MONTH),
+                                                calendar.get(Calendar.DAY_OF_MONTH));
+
         stationInput.addTextChangedListener(DisplayLogEntryController.getInstance().getStationInputTextWatcher());
         gradeInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelGradeInputTextWatcher());
         odometerInput.addTextChangedListener(DisplayLogEntryController.getInstance().getOdometerInputTextWatcher());
         fuelAmountInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelAmountInputTextWatcher(this));
         fuelUnitCostInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelUnitCostInputTextWatcher(this));
 
-        // TODO: this currently doesn't dynamically update as the user enters new values, need to change that
-        TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);
-        totalCostView.setText("Total Cost: $0.00");
-
-        boolean newEntry = getIntent().getBooleanExtra(FuelTrackController.NEW_LOG_ENTRY_EXTRA, false);
-        if (!newEntry) {
-            LogEntry existingEntry = DisplayLogEntryDataStore.getInstance().getDisplayedEntry();
-
-            dateView.setText("Date: " + new SimpleDateFormat("yyyy-MM-dd").format(existingEntry.getDate()));
-
-            stationInput.setText(existingEntry.getStation());
-            gradeInput.setText(existingEntry.getFuelGrade());
-            odometerInput.setText(existingEntry.getOdometerReading().toString());
-            fuelAmountInput.setText(existingEntry.getFuelAmount().toString());
-            fuelUnitCostInput.setText(existingEntry.getFuelUnitCost().toString());
-
-            totalCostView.setText("Total Cost: $" + existingEntry.getFuelCost().toString());
-        }
-
-        Button saveButton = (Button) findViewById(R.id.save_entry);
         saveButton.setOnClickListener(DisplayLogEntryController.getInstance().getSaveEntryOnClickListener(this, getIntent()));
+
+        // Populate the views with the data found in the DisplayLogEntryDataStore
+        LogEntry displayedEntry = DisplayLogEntryDataStore.getInstance().getDisplayedEntry();
+
+        dateView.setText("Date: " + new SimpleDateFormat("yyyy-MM-dd").format(displayedEntry.getDate()));
+
+        stationInput.setText(displayedEntry.getStation());
+        gradeInput.setText(displayedEntry.getFuelGrade());
+        odometerInput.setText(displayedEntry.getOdometerReading().toString());
+        fuelAmountInput.setText(displayedEntry.getFuelAmount().toString());
+        fuelUnitCostInput.setText(displayedEntry.getFuelUnitCost().toString());
+
+        totalCostView.setText("Total Cost: $" + displayedEntry.getFuelCost().toString());
 
         dateView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,15 +70,5 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-        // TODO: update
-        Calendar newCalendar = Calendar.getInstance();
-        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                Calendar newDate = Calendar.getInstance();
-                newDate.set(year, month, day);
-                System.out.println(newDate.toString());
-            }
-        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
 }

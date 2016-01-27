@@ -21,7 +21,6 @@ public class LogEntry implements Serializable {
                    fuelUnitCost = 0.0, // in cents per L, numeric to 1 decimal place
                    fuelCost = 0.0; // in dollars, numeric to 2 decimal places // TODO: remove, uneeded
 
-    // TODO: remove?; used for testing
     public LogEntry() {
         date = new Date(System.currentTimeMillis());
 
@@ -31,6 +30,17 @@ public class LogEntry implements Serializable {
         odometerReading = 0.0;
         fuelAmount = 0.0;
         fuelUnitCost = 0.0;
+    }
+
+    public LogEntry(LogEntry otherLogEntry) {
+        date = otherLogEntry.date;
+
+        station = otherLogEntry.station;
+        fuelGrade = otherLogEntry.fuelGrade;
+
+        odometerReading = otherLogEntry.odometerReading;
+        fuelAmount = otherLogEntry.fuelAmount;
+        fuelUnitCost = otherLogEntry.fuelUnitCost;
     }
 
     // TODO: add error checking

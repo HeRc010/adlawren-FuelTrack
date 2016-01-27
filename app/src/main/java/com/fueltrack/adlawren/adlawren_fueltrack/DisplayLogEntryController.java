@@ -1,12 +1,18 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by adlawren on 26/01/16.
@@ -19,6 +25,33 @@ public class DisplayLogEntryController {
     }
 
     private DisplayLogEntryController() {
+    }
+
+    private class EntryDateOnDateSetListener implements DatePickerDialog.OnDateSetListener {
+        Context context;
+
+        public EntryDateOnDateSetListener(Context initialContext) {
+            context = initialContext;
+        }
+
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+            Calendar newDate = Calendar.getInstance();
+            newDate.set(year, month, day);
+
+            DisplayLogEntryDataStore.getInstance().updatedDate(new Date(newDate.getTimeInMillis()));
+
+            // TODO: find an alternative method; this is hacky
+            // Update the EntryTotalCost TextView
+            Activity activity = (Activity) context;
+
+            TextView entryDateView = (TextView) activity.findViewById(R.id.entry_date);
+            entryDateView.setText("Date: " + new SimpleDateFormat("yyyy-MM-dd").format(DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getDate()));
+        }
+    }
+
+    public EntryDateOnDateSetListener getEntryDateOnDateSetListener(Context context) {
+        return new EntryDateOnDateSetListener(context);
     }
 
     private class StationInputTextWatcher implements TextWatcher {
@@ -101,6 +134,7 @@ public class DisplayLogEntryController {
                 DisplayLogEntryDataStore.getInstance().updateFuelAmount(Double.valueOf(editable.toString()));
             }
 
+            // TODO: find an alternative method; this is hacky
             // Update the EntryTotalCost TextView
             Activity activity = (Activity) context;
 
@@ -137,6 +171,7 @@ public class DisplayLogEntryController {
                 DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(Double.valueOf(editable.toString()));
             }
 
+            // TODO: find an alternative method; this is hacky
             // Update the EntryTotalCost TextView
             Activity activity = (Activity) context;
 

@@ -40,7 +40,7 @@ public class FuelTrackController {
             LogEntry selectedLogEntry = (LogEntry) parent.getItemAtPosition(position);
 
             // Initialize the contents of the DisplayLogEntryDataStore
-            DisplayLogEntryDataStore.getInstance().updateLogEntry(selectedLogEntry);
+            DisplayLogEntryDataStore.getInstance().updateLogEntry(new LogEntry(selectedLogEntry));
 
             // Start the DisplayLogEntryActivity
             Intent intent = new Intent(context, DisplayLogEntryActivity.class);
@@ -63,6 +63,10 @@ public class FuelTrackController {
 
         @Override
         public void onClick(View view) {
+
+            // Initialize the contents of the DisplayLogEntryDataStore
+            DisplayLogEntryDataStore.getInstance().updateLogEntry(new LogEntry());
+
             Intent intent = new Intent(context, DisplayLogEntryActivity.class);
             intent.putExtra(NEW_LOG_ENTRY_EXTRA, true);
             context.startActivity(intent);
