@@ -65,7 +65,11 @@ public class DisplayLogEntryController {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            DisplayLogEntryDataStore.getInstance().updateOdometerReading(Double.valueOf(editable.toString()));
+            if (editable.toString().equals("")) {
+                DisplayLogEntryDataStore.getInstance().updateOdometerReading(0.0);
+            } else {
+                DisplayLogEntryDataStore.getInstance().updateOdometerReading(Double.valueOf(editable.toString()));
+            }
         }
 
         @Override
@@ -91,7 +95,11 @@ public class DisplayLogEntryController {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            DisplayLogEntryDataStore.getInstance().updateFuelAmount(Double.valueOf(editable.toString()));
+            if (editable.toString().equals("")) {
+                DisplayLogEntryDataStore.getInstance().updateFuelAmount(0.0);
+            } else {
+                DisplayLogEntryDataStore.getInstance().updateFuelAmount(Double.valueOf(editable.toString()));
+            }
 
             // Update the EntryTotalCost TextView
             Activity activity = (Activity) context;
@@ -123,7 +131,11 @@ public class DisplayLogEntryController {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(Double.valueOf(editable.toString()));
+            if (editable.toString().equals("")) {
+                DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(0.0);
+            } else {
+                DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(Double.valueOf(editable.toString()));
+            }
 
             // Update the EntryTotalCost TextView
             Activity activity = (Activity) context;
