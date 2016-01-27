@@ -27,6 +27,7 @@ public class DisplayLogEntryController {
     private DisplayLogEntryController() {
     }
 
+    // Callback triggered when the user selects sets a different date using a DatePickerDialog
     private class EntryDateOnDateSetListener implements DatePickerDialog.OnDateSetListener {
         Context context;
 
@@ -39,6 +40,7 @@ public class DisplayLogEntryController {
             Calendar newDate = Calendar.getInstance();
             newDate.set(year, month, day);
 
+            // Update the date recorded in the DisplayLogEntryDataStore
             DisplayLogEntryDataStore.getInstance().updatedDate(new Date(newDate.getTimeInMillis()));
 
             // TODO: find an alternative method; this is hacky
@@ -54,6 +56,7 @@ public class DisplayLogEntryController {
         return new EntryDateOnDateSetListener(context);
     }
 
+    // Callback triggered when the user alters the text in the Station EditText View
     private class StationInputTextWatcher implements TextWatcher {
 
         @Override
@@ -74,6 +77,7 @@ public class DisplayLogEntryController {
         return new StationInputTextWatcher();
     }
 
+    // Callback triggered when the user alters the text in the FuelGrade EditText View
     private class FuelGradeInputTextWatcher implements TextWatcher {
 
         @Override
@@ -94,6 +98,7 @@ public class DisplayLogEntryController {
         return new FuelGradeInputTextWatcher();
     }
 
+    // Callback triggered when the user alters the text in the OdometerReading EditText View
     private class OdometerInputTextWatcher implements TextWatcher {
 
         @Override
@@ -118,8 +123,8 @@ public class DisplayLogEntryController {
         return new OdometerInputTextWatcher();
     }
 
+    // Callback triggered when the user alters the text in the FuelAmount EditText View
     private class FuelAmountTextWatcher implements TextWatcher {
-
         private Context context;
 
         public FuelAmountTextWatcher(Context initialContext) {
@@ -128,6 +133,8 @@ public class DisplayLogEntryController {
 
         @Override
         public void afterTextChanged(Editable editable) {
+
+            // Ensure the text is not blank
             if (editable.toString().equals("")) {
                 DisplayLogEntryDataStore.getInstance().updateFuelAmount(0.0);
             } else {
@@ -155,8 +162,8 @@ public class DisplayLogEntryController {
         return new FuelAmountTextWatcher(context);
     }
 
+    // Callback triggered when the user alters the text in the FuelUnitCost EditText View
     private class FuelUnitCostTextWatcher implements TextWatcher {
-
         Context context;
 
         public FuelUnitCostTextWatcher(Context initialContext) {
@@ -165,6 +172,8 @@ public class DisplayLogEntryController {
 
         @Override
         public void afterTextChanged(Editable editable) {
+
+            // Ensure the text is not blank
             if (editable.toString().equals("")) {
                 DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(0.0);
             } else {
@@ -192,6 +201,7 @@ public class DisplayLogEntryController {
         return new FuelUnitCostTextWatcher(context);
     }
 
+    // Callback triggered when the user selects the SaveEntry Button
     private class SaveEntryOnClickListener implements View.OnClickListener {
         private Context context;
         private Intent displayIntent;
@@ -205,6 +215,7 @@ public class DisplayLogEntryController {
         public void onClick(View view) {
             LogEntry displayedEntry = DisplayLogEntryDataStore.getInstance().getDisplayedEntry();
 
+            // Determine whether the user is updating an existing LogEntry or adding a new LogEntry
             if (displayIntent.getBooleanExtra(FuelTrackController.NEW_LOG_ENTRY_EXTRA, false)) {
                 FuelTrackDataStore.getInstance().addLogEntry(context, displayedEntry);
             } else {
@@ -212,6 +223,7 @@ public class DisplayLogEntryController {
                 FuelTrackDataStore.getInstance().updateLogEntry(context, existingEntry, displayedEntry);
             }
 
+            // Transition to the FuelTrackActivity
             Intent intent = new Intent(context, FuelTrackActivity.class);
             context.startActivity(intent);
         }

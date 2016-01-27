@@ -64,6 +64,7 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
 
         totalCostView.setText("Total Cost: $" + displayedEntry.getFuelCost().toString());
 
+        // Callback associated with the selection of the EntryDate TextView
         dateView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

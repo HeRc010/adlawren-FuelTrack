@@ -4,10 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by adlawren on 24/01/16.
@@ -23,9 +19,11 @@ public class FuelTrackController {
 
     }
 
+    // Keys used in subsequent callbacks to retrieve information sent in Intents
     public static final String LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.log.entry";
     public static final String NEW_LOG_ENTRY_EXTRA = "com.fueltrack.adlawren.adlawren_fuel_track.new.log.entry";
 
+    // Callback triggered when the user selects a LogEntry from the ListView of LogEntries
     private class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
         private Context context;
 
@@ -54,6 +52,7 @@ public class FuelTrackController {
         return new LogEntryOnItemClickListener(context);
     }
 
+    // Callback associated with the selection of the Add/"plus" Button displayed in the main Activity
     private class AddNewEntryOnClickListener implements View.OnClickListener {
         private Context context;
 
@@ -67,6 +66,7 @@ public class FuelTrackController {
             // Initialize the contents of the DisplayLogEntryDataStore
             DisplayLogEntryDataStore.getInstance().updateLogEntry(new LogEntry());
 
+            // Transition to the DisplayLogEntryActivity
             Intent intent = new Intent(context, DisplayLogEntryActivity.class);
             intent.putExtra(NEW_LOG_ENTRY_EXTRA, true);
             context.startActivity(intent);
