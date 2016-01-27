@@ -35,8 +35,8 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         stationInput.addTextChangedListener(DisplayLogEntryController.getInstance().getStationInputTextWatcher());
         gradeInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelGradeInputTextWatcher());
         odometerInput.addTextChangedListener(DisplayLogEntryController.getInstance().getOdometerInputTextWatcher());
-        fuelAmountInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelAmountInputTextWatcher());
-        fuelUnitCostInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelUnitCostInputTextWatcher());
+        fuelAmountInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelAmountInputTextWatcher(this));
+        fuelUnitCostInput.addTextChangedListener(DisplayLogEntryController.getInstance().getFuelUnitCostInputTextWatcher(this));
 
         // TODO: this currently doesn't dynamically update as the user enters new values, need to change that
         TextView totalCostView = (TextView) findViewById(R.id.entry_total_cost);

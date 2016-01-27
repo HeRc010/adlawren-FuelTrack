@@ -1,19 +1,21 @@
 package com.fueltrack.adlawren.adlawren_fueltrack;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by adlawren on 26/01/16.
  */
 public class DisplayLogEntryController {
-    private static DisplayLogEntryController ourInstance = new DisplayLogEntryController();
+    private static DisplayLogEntryController instance = new DisplayLogEntryController();
 
     public static DisplayLogEntryController getInstance() {
-        return ourInstance;
+        return instance;
     }
 
     private DisplayLogEntryController() {
@@ -81,9 +83,21 @@ public class DisplayLogEntryController {
 
     private class FuelAmountTextWatcher implements TextWatcher {
 
+        private Context context;
+
+        public FuelAmountTextWatcher(Context initialContext) {
+            context = initialContext;
+        }
+
         @Override
         public void afterTextChanged(Editable editable) {
             DisplayLogEntryDataStore.getInstance().updateFuelAmount(Double.valueOf(editable.toString()));
+
+            // Update the EntryTotalCost TextView
+            Activity activity = (Activity) context;
+
+            TextView entryTotalCostView = (TextView) activity.findViewById(R.id.entry_total_cost);
+            entryTotalCostView.setText("Total Cost: $" + DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost().toString());
         }
 
         @Override
@@ -95,15 +109,27 @@ public class DisplayLogEntryController {
         }
     }
 
-    public FuelAmountTextWatcher getFuelAmountInputTextWatcher() {
-        return new FuelAmountTextWatcher();
+    public FuelAmountTextWatcher getFuelAmountInputTextWatcher(Context context) {
+        return new FuelAmountTextWatcher(context);
     }
 
     private class FuelUnitCostTextWatcher implements TextWatcher {
 
+        Context context;
+
+        public FuelUnitCostTextWatcher(Context initialContext) {
+            context = initialContext;
+        }
+
         @Override
         public void afterTextChanged(Editable editable) {
             DisplayLogEntryDataStore.getInstance().updateFuelUnitCost(Double.valueOf(editable.toString()));
+
+            // Update the EntryTotalCost TextView
+            Activity activity = (Activity) context;
+
+            TextView entryTotalCostView = (TextView) activity.findViewById(R.id.entry_total_cost);
+            entryTotalCostView.setText("Total Cost: $" + DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost().toString());
         }
 
         @Override
@@ -115,8 +141,8 @@ public class DisplayLogEntryController {
         }
     }
 
-    public FuelUnitCostTextWatcher getFuelUnitCostInputTextWatcher() {
-        return new FuelUnitCostTextWatcher();
+    public FuelUnitCostTextWatcher getFuelUnitCostInputTextWatcher(Context context) {
+        return new FuelUnitCostTextWatcher(context);
     }
 
     private class SaveEntryOnClickListener implements View.OnClickListener {

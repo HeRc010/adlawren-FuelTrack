@@ -6,10 +6,10 @@ import java.util.Date;
  * Created by adlawren on 26/01/16.
  */
 public class DisplayLogEntryDataStore {
-    private static DisplayLogEntryDataStore ourInstance = new DisplayLogEntryDataStore();
+    private static DisplayLogEntryDataStore instance = new DisplayLogEntryDataStore();
 
     public static DisplayLogEntryDataStore getInstance() {
-        return ourInstance;
+        return instance;
     }
 
     private DisplayLogEntryDataStore() {
