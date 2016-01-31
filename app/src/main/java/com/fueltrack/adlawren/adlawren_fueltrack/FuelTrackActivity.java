@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class FuelTrackActivity extends AppCompatActivity {
 
     // The list of LogEntries
@@ -36,6 +38,6 @@ public class FuelTrackActivity extends AppCompatActivity {
 
         // Compute the total fuel cost and illustrate in the TotalCost TextView
         TextView totalCostView = (TextView) findViewById(R.id.total_cost);
-        totalCostView.setText("Total Cost: $" + FuelTrackDataStore.getInstance().getTotalFuelCost().toString());
+        totalCostView.setText("Total Cost: $" + new DecimalFormat("#0.00").format(FuelTrackDataStore.getInstance().getTotalFuelCost()));
     }
 }

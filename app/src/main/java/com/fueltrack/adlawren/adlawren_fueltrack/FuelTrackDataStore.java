@@ -28,20 +28,9 @@ public class FuelTrackDataStore {
     }
 
     private FuelTrackDataStore() {
-
     }
 
     private static final String FILENAME = "previous_log_entries.sav";
-
-    private static ArrayList<LogEntry> logEntries = new ArrayList<LogEntry>();
-    private static ArrayAdapter<LogEntry> adapter = null;
-
-    private void initializeArrayAdapter(Context context) {
-
-        // Load the LogEntries from the given file and construct the ArrayAdapter
-        loadLogEntriesFromFile(context);
-        adapter = new ArrayAdapter<LogEntry>(context, R.layout.log_entry, logEntries);
-    }
 
     private void loadLogEntriesFromFile(Context context) {
         logEntries = new ArrayList<LogEntry>();
@@ -84,6 +73,16 @@ public class FuelTrackDataStore {
         } catch (IOException e) {
             throw new RuntimeException();
         }
+    }
+
+    private static ArrayList<LogEntry> logEntries = new ArrayList<LogEntry>();
+    private static ArrayAdapter<LogEntry> adapter = null;
+
+    private void initializeArrayAdapter(Context context) {
+
+        // Load the LogEntries from the given file and construct the ArrayAdapter
+        loadLogEntriesFromFile(context);
+        adapter = new ArrayAdapter<LogEntry>(context, R.layout.log_entry, logEntries);
     }
 
     public ArrayAdapter<LogEntry> getLogEntryArrayAdapter(Context context) {

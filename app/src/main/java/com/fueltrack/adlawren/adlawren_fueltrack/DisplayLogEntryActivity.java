@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -62,7 +63,7 @@ public class DisplayLogEntryActivity extends AppCompatActivity {
         fuelAmountInput.setText(displayedEntry.getFuelAmount().toString());
         fuelUnitCostInput.setText(displayedEntry.getFuelUnitCost().toString());
 
-        totalCostView.setText("Total Cost: $" + displayedEntry.getFuelCost().toString());
+        totalCostView.setText("Total Cost: $" + new DecimalFormat("#0.00").format(displayedEntry.getFuelCost()));
 
         // Callback associated with the selection of the EntryDate TextView
         dateView.setOnClickListener(new View.OnClickListener() {

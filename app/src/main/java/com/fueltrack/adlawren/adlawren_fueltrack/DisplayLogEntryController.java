@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -41,7 +42,7 @@ public class DisplayLogEntryController {
             newDate.set(year, month, day);
 
             // Update the date recorded in the DisplayLogEntryDataStore
-            DisplayLogEntryDataStore.getInstance().updatedDate(new Date(newDate.getTimeInMillis()));
+            DisplayLogEntryDataStore.getInstance().updateDate(new Date(newDate.getTimeInMillis()));
 
             // TODO: find an alternative method; this is hacky
             // Update the EntryTotalCost TextView
@@ -146,7 +147,7 @@ public class DisplayLogEntryController {
             Activity activity = (Activity) context;
 
             TextView entryTotalCostView = (TextView) activity.findViewById(R.id.entry_total_cost);
-            entryTotalCostView.setText("Total Cost: $" + DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost().toString());
+            entryTotalCostView.setText("Total Cost: $" + new DecimalFormat("#0.00").format(DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost()));
         }
 
         @Override
@@ -185,7 +186,7 @@ public class DisplayLogEntryController {
             Activity activity = (Activity) context;
 
             TextView entryTotalCostView = (TextView) activity.findViewById(R.id.entry_total_cost);
-            entryTotalCostView.setText("Total Cost: $" + DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost().toString());
+            entryTotalCostView.setText("Total Cost: $" + new DecimalFormat("#0.00").format(DisplayLogEntryDataStore.getInstance().getDisplayedEntry().getFuelCost()));
         }
 
         @Override

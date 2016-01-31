@@ -19,12 +19,12 @@ public class DisplayLogEntryDataStore {
     // The LogEntry associated with the information currently displayed in the DisplayLogEntryActivity
     private LogEntry displayedEntry = null;
 
-    public void updatedDate(Date newDate) {
-        displayedEntry.setDate(newDate);
-    }
-
     public void updateLogEntry(LogEntry newEntry) {
         displayedEntry = newEntry;
+    }
+
+    public void updateDate(Date newDate) {
+        displayedEntry.setDate(newDate);
     }
 
     public void updateStation(String newStation) {
