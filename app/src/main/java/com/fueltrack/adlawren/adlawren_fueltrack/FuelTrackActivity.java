@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
 public class FuelTrackActivity extends AppCompatActivity {
 
     // The list of LogEntries
-    private ListView previousLogEntriesView;
+    private ListView previousLogEntriesView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

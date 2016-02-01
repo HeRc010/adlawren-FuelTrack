@@ -30,7 +30,7 @@ public class DisplayLogEntryController {
 
     // Callback triggered when the user selects sets a different date using a DatePickerDialog
     private class EntryDateOnDateSetListener implements DatePickerDialog.OnDateSetListener {
-        Context context;
+        Context context = null;
 
         public EntryDateOnDateSetListener(Context initialContext) {
             context = initialContext;
@@ -204,8 +204,8 @@ public class DisplayLogEntryController {
 
     // Callback triggered when the user selects the SaveEntry Button
     private class SaveEntryOnClickListener implements View.OnClickListener {
-        private Context context;
-        private Intent displayIntent;
+        private Context context = null;
+        private Intent displayIntent = null;
 
         public SaveEntryOnClickListener(Context initialContext, Intent initialDisplayIntent) {
             context = initialContext;

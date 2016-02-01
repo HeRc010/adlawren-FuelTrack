@@ -105,7 +105,7 @@ public class LogEntry implements Serializable {
     }
 
     public Double getFuelCost() {
-        return fuelAmount * fuelUnitCost;
+        return fuelAmount * (fuelUnitCost / 100);
     }
 
     @Override
@@ -119,26 +119,26 @@ public class LogEntry implements Serializable {
         // Add Station
         builder.append("Station: " + station + "\n");
 
-        // Add Fuel Grade
-        builder.append("Grade: " + fuelGrade + "\n");
-
         // Add Odometer Reading
         builder.append("Odometer Reading: ");
         builder.append(new DecimalFormat("#0.0").format(odometerReading));
-        builder.append("\n");
+        builder.append(" km\n");
+
+        // Add Fuel Grade
+        builder.append("Grade: " + fuelGrade + "\n");
 
         // Add Fuel Amount
         builder.append("Amount: ");
         builder.append(new DecimalFormat("#0.000").format(fuelAmount));
-        builder.append("\n");
+        builder.append(" L\n");
 
         // Add Fuel Unit Cost
         builder.append("Unit Cost: ");
         builder.append(new DecimalFormat("#0.0").format(fuelUnitCost));
-        builder.append("\n");
+        builder.append(" cents/L\n");
 
         // Add Fuel Cost
-        builder.append("Cost: ");
+        builder.append("Cost: $");
         builder.append(new DecimalFormat("#0.00").format(getFuelCost()));
         builder.append("\n");
 

@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DisplayLogEntryActivity extends AppCompatActivity {
-    private DatePickerDialog datePickerDialog;
+    private DatePickerDialog datePickerDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

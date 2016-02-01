@@ -25,7 +25,7 @@ public class FuelTrackController {
 
     // Callback triggered when the user selects a LogEntry from the ListView of LogEntries
     private class LogEntryOnItemClickListener implements AdapterView.OnItemClickListener {
-        private Context context;
+        private Context context = null;
 
         public LogEntryOnItemClickListener(Context initialContext) {
             context = initialContext;
@@ -54,7 +54,7 @@ public class FuelTrackController {
 
     // Callback associated with the selection of the Add/"plus" Button displayed in the main Activity
     private class AddNewEntryOnClickListener implements View.OnClickListener {
-        private Context context;
+        private Context context = null;
 
         public AddNewEntryOnClickListener(Context initialContext) {
             context = initialContext;
