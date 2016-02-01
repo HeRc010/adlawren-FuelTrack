@@ -28,34 +28,7 @@
     <favorites_list name="adlawren-FuelTrack" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="DisplayLogEntryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="141" column="78" selection-start-line="141" selection-start-column="72" selection-end-line="141" selection-end-column="78" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogEntry.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7364341">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3253#3254#0" expanded="true" />
-                <element signature="e#3309#3310#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1627,20 +1600,20 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_fuel_track.xml" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntryTests.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntryTest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryDataStore.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryDataStoreTest.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackDataStoreTest.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackControllerTest.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryControllerTest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackController.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackDataStore.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryController.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_fuel_track.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_display_log_entry.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackDataStore.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryDataStore.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryController.java" />
       </list>
     </option>
   </component>
@@ -1739,6 +1712,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adlawren_fueltrack" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2125,7 +2102,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993559" sideWeight="0.50278884" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3936255" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3936255" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988048" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -2175,7 +2152,7 @@
           <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#2510#2520#0" expanded="false" />
+            <element signature="e#3266#3276#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2186,8 +2163,6 @@
           <caret line="152" column="8" selection-start-line="152" selection-start-column="8" selection-end-line="152" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3309#3310#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2216,8 +2191,6 @@
           <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3309#3310#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2226,6 +2199,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2235,8 +2211,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#2262#2263#0" expanded="false" />
-            <element signature="e#2310#2311#0" expanded="false" />
+            <element signature="e#2616#2617#0" expanded="false" />
+            <element signature="e#2664#2665#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2255,6 +2231,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2264,8 +2243,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3309#3310#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2274,6 +2251,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2444,36 +2424,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11627907">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45736435">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2262#2263#0" expanded="false" />
-            <element signature="e#2310#2311#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackDataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6124031">
-          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2510#2520#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2484,14 +2435,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryDataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2533,10 +2476,44 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryController.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackDataStore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="141" column="78" selection-start-line="141" selection-start-column="72" selection-end-line="141" selection-end-column="78" />
+          <caret line="29" column="84" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3488372">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryDataStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5813953">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/FuelTrackController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4651163">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/DisplayLogEntryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65891474">
+          <caret line="29" column="90" selection-start-line="29" selection-start-column="90" selection-end-line="29" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2546,11 +2523,9 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fueltrack/adlawren/adlawren_fueltrack/LogEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7364341">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3253#3254#0" expanded="true" />
-            <element signature="e#3309#3310#0" expanded="true" />
           </folding>
         </state>
       </provider>

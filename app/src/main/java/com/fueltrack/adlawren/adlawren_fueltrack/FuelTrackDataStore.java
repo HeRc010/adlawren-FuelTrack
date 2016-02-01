@@ -19,6 +19,18 @@ import java.util.ArrayList;
 
 /**
  * Created by adlawren on 24/01/16.
+ *
+ * Purpose: This class is used to facilitate a degree of abstraction between the ArrayList of Log Entries,
+ *          and the derived ArrayAdapter, and views which utilize the array adapter.
+ *
+ * Design: This class is implemented as a singleton, the ArrayList and ArrayAdapter are stored privately,
+ *         along with methods used to store the data to the local filesystem of the Android device using
+ *         the GSON library. Methods are provided which facilitate the addition of a LogEntry to the
+ *         existing list of entries or the edition of an existing LogEntry present in the list. A method
+ *         is provided in order to obtain the ArrayAdapter associated with the data.
+ *
+ * Outstanding Issues: At present, none observed.
+ *
  */
 public class FuelTrackDataStore {
     private static FuelTrackDataStore instance = new FuelTrackDataStore();

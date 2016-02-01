@@ -4,6 +4,17 @@ import java.util.Date;
 
 /**
  * Created by adlawren on 26/01/16.
+ *
+ * Purpose: This class is used to store the data being rendered in the DisplayLogEntryActivity.
+ *
+ * Design: This class is implemented as a singleton. This class allows for the preliminary initialization
+ *         of the LogEntry associated with the DisplayLogEntryActivity. If the user is editing an existing
+ *         entry, the contents of the LogEntry stored internaly may be updated via a public method.
+ *         Otherwise individual values of the LogEntry may be updated using the provided update methods.
+ *         A method is provided, using which, the maintained LogEntry may be retrieved.
+ *
+ * Outstanding Issues: At present, none observed.
+ *
  */
 public class DisplayLogEntryDataStore {
     private static DisplayLogEntryDataStore instance = new DisplayLogEntryDataStore();

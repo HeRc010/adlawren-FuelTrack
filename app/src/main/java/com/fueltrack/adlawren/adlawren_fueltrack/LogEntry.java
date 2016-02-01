@@ -7,6 +7,21 @@ import java.util.Date;
 
 /**
  * Created by adlawren on 23/01/16.
+ *
+ * Purpose: This class serves as the model of the data associated with a Log Entry to be specified by the user.
+ *
+ * Design: This class consists of private variables representing the data associated with a Log Entry.
+ *         Get methods and Set methods are provided for each variable. There are 3 alternate construtors,
+ *         one constructor with default values, one with specified values and one which clones a second
+ *         LogEntry instance. A method is provided which returns the contents of the class in a formatted
+ *         String. A method is also provided using which it may be determined whether two LogEntry instances
+ *         are equivalent.
+ *
+ * Outstanding Issues: A variable is currently left unused; remained to serve as documentation. Input
+ *                     sanitation procedures should be implemented in the constructor which processes
+ *                     explicit values and the Set methods of the class, in order to ensure that invalid
+ *                     data is rejected (ex. negative odometer reading).
+ *
  */
 public class LogEntry implements Serializable {
     private Date date;

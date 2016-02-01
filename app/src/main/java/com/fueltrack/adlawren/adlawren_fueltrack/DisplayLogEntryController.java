@@ -17,6 +17,17 @@ import java.util.Date;
 
 /**
  * Created by adlawren on 26/01/16.
+ *
+ * Purpose: This class is used as a factory for various callbacks used by the DisplayLogEntryActivity class.
+ *
+ * Design: This class consists of privately defined class which implement the appropriate callback interfaces
+ *         needed for the particular callbacks of Views in the DisplayLogEntryActivity.
+ *
+ * Outstanding Issues: Alternative design patterns need to be utilized in 3 of the callback classes,
+ *                     in these classes the Context member variable used within the callback methods
+ *                     is assumed to be an Activity in an explicit cast, in order to retrieve specific
+ *                     TextViews from the DisplayLogEntryActivity for the purposes of dynamically updating
+ *                     the content of these Views. An Observer design pattern might remedy the issues.
  */
 public class DisplayLogEntryController {
     private static DisplayLogEntryController instance = new DisplayLogEntryController();

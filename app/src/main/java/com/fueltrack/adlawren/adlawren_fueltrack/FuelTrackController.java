@@ -7,6 +7,13 @@ import android.widget.AdapterView;
 
 /**
  * Created by adlawren on 24/01/16.
+ *
+ * Purpose: This class is used as a factory for various callbacks used by the FuelTrackActivity class.
+ *
+ * Design: This class consists of privately defined class which implement the appropriate callback interfaces
+ *         needed for the particular callbacks of Views in the FuelTrackActivity.
+ *
+ * Outstanding Issues: At present, none observed.
  */
 public class FuelTrackController {
     private static FuelTrackController instance = new FuelTrackController();
